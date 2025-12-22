@@ -1,0 +1,134 @@
+/* --- OPSI 2: GLASSMORPHISM --- */
+.kartu {
+    /* Latar belakang kaca buram */
+    background: rgba(255, 255, 255, 0.03); /* Transparan banget */
+    backdrop-filter: blur(10px); /* Efek Blur di belakangnya */
+    -webkit-backdrop-filter: blur(10px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Border putih super tipis */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Highlight atas biar kilap */
+    border-radius: 16px;
+    padding: 30px;
+    
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Bayangan lembut */
+    transition: transform 0.3s;
+}
+.kartu:hover {
+    transform: translateY(-3px);
+}
+.paket-fiqih h2 {
+    background: linear-gradient(90deg, var(--warna-utama), transparent); /* Gradasi background judul */
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: inline-block; /* Kotak judul menyesuaikan teks */
+    font-weight: 700;
+    
+    /* Hapus garis bawah lama */
+    border-bottom: none; 
+}
+.pengembangan {
+    background-color: var(--warna-kartu);
+    border: 2px solid var(--warna-border);
+    border-top: 1px dashed var(--warna-border);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 5px 5px 0 rgba(15, 118, 110, 0.2);
+}
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+h2 {
+    color: var(--warna-utama);
+    margin-bottom: 15px;
+    border-bottom: 2px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+/* Style buat List di dalam materi (ul/li) */
+.konten-materi ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    flex: 1; /* Input ngambil sisa ruang */
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: var(--warna-bg); /* Pas diklik jadi hijau */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--warna-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0d5f5a; /* Gelapin dikit pas hover */
+}
+
+/* Update class .catatan-user yang lama */
+.catatan-user {
+    background-color: var(--warna-catatan);
+    color: var(--warna-bg);
+    padding: 10px;
+    padding-right: 15px;
+    border-left: 6px solid var(--warna-utama);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-style: italic;
+    animation: muncul 0.5s ease;
+
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    /* TAMBAHAN BARU: Biar teks dan tombol sejajar kanan-kiri */
+    display: flex;
+    justify-content: space-between; /* Teks di kiri, Tombol di kanan */
+    align-items: center; 
+}
+/* Animasi kecil biar keren */
+@keyframes muncul {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style buat tombol hapus yang kecil */
+.btn-hapus-kecil {
+    background-color: var(--warna-hapus); /* Merah bahaya */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-left: 10px; /* Jarak dari teks */
+}
+
+.btn-hapus-kecil:hover {
+    background-color: #fd1b1b; /* Merah gelap pas hover */
+}

@@ -1,0 +1,351 @@
+.layout-utama {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    min-height: 100vh;
+}
+/* ========================================= */
+/* 💎 HEADER GLASSMORPHISM (SETARA KARTU)    */
+/* ========================================= */
+
+header {
+    /* 1. EFEK KACA BURAM (BLUR) */
+    /* Kita pakai warna gelap transparan biar teks tetap kebaca */
+    background: rgba(30, 41, 59, 0.7); 
+    backdrop-filter: blur(15px); /* Makin tinggi makin buram belakangnya */
+    -webkit-backdrop-filter: blur(15px); /* Buat Safari */
+    
+    /* 2. BORDER HALUS (Garis Batas Kaca) */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* 3. LAYOUT & POSISI */
+    position: sticky; /* Nempel terus di atas */
+    top: 0;
+    z-index: 1000; /* Raja tumpukan */
+    
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Judul di tengah */
+    
+    /* Bayangan tipis biar misah sama konten */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* KITA HIAS JUDULNYA JUGA BIAR GLOWING */
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 800; /* Tebal banget */
+    letter-spacing: 2px; /* Jarak antar huruf */
+    
+    /* GRADASI EMAS KEKUNINGAN (Matching sama tema) */
+    background: linear-gradient(45deg, #ffffff, var(--warna-utama));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Ikon di dalam h1 juga ikut gradasi otomatis! */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* PENYELAMAT IKON YANG HILANG */
+header h1 i {
+    /* 1. Batalkan efek transparan dari H1 */
+    -webkit-text-fill-color: initial; /* Balikin ke normal (isi penuh) */
+    
+    /* 2. Hapus background gradient dari H1 (biar gak aneh) */
+    background: none; 
+    
+    /* 3. Kasih warna solid kebanggaan kita */
+    color: var(--warna-utama); /* Emas/Kuning */
+    
+    /* Opsional: Kasih bayangan dikit biar nongol */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+.logo-area {
+    font-family: 'Courier New', Courier, monospace; /* Font koding biar kerasa hackernya */
+    color: var(--warna-teks);
+    border-bottom: 1px solid rgba(255,255,255,0.1); /* Garis tipis banget */
+    margin-bottom: 10px;
+    display: flex; /* Biar ikon dan teks sejajar rapi */
+    align-items: center;
+    gap: 10px; /* Jarak ikon ke teks */
+    padding: 20px 0;
+    
+    /* INI YANG BIKIN BESAR: */
+    font-size: 1.4rem; /* Sebelumnya mungkin cuma 1rem atau 1.2rem */
+    font-weight: 800;  /* Lebih tebal (Extra Bold) */
+    text-transform: uppercase; /* Huruf KAPITAL semua biar tegas */
+    letter-spacing: 1px; /* Jarak antar huruf biar elegan */
+}
+
+/* Bagian "SYARIAH" kita bikin beda warnanya */
+.logo-area .highlight {
+    color: var(--warna-utama); /* Emas/Kuning */
+    text-shadow: 0 0 10px var(--warna-utama); /* EFEK NEON GLOW! Menyala abangkuh! 🔥 */
+}
+
+/* Ikon Terminal */
+.logo-area i {
+    color: var(--warna-teks);
+    opacity: 0.7;
+    font-size: 1.3em; /* Ikut membesar proporsional */
+}
+/* ========================================= */
+/* 🔍 SEARCH BOX ALA GOOGLE (PREMIUM)        */
+/* ========================================= */
+
+.search-box {
+    padding: 0;
+    margin-bottom: 20px;
+    width: 100%; /* Paksa lebar penuh */
+}
+
+/* Wadah relatif biar ikon bisa nempel di dalamnya */
+.search-wrapper {
+    position: relative; 
+    width: 100%;
+}
+
+/* INPUT NYA KITA PERMAK BIAR GANTENG */
+#input-cari {
+    width: 100%; /* Lebar Penuh */
+    padding: 12px 15px 12px 45px; /* ⚠️ Padding Kiri 45px buat tempat Ikon! */
+    
+    background-color: white; /* Warna dasar */
+    border: 2px solid var(--warna-border); /* Border lebih tegas dikit */
+    border-radius: 8px; /* Sudut membulat modern */
+    color: black;
+    font-size: 1rem; /* Ukuran font disamakan dengan menu */
+    
+    transition: all 0.3s ease;
+    box-sizing: border-box; /* Wajib! Biar padding gak bikin lebar meledak */
+}
+
+/* Efek pas diklik (Fokus) */
+#input-cari:focus {
+    border-color: var(--warna-utama); /* Warna Emas */
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.1); /* Glowing tipis */
+    outline: none;
+}
+
+/* IKON KACA PEMBESAR (HANTU) */
+.search-icon {
+    position: absolute; /* Lepas dari aliran normal */
+    left: 15px; /* Nempel di kiri */
+    top: 50%;   /* Tengah vertikal */
+    transform: translateY(-50%); /* Koreksi posisi tengah */
+    
+    color: black; /* Warna abu */
+    opacity: 0.5; /* Agak pudar */
+    font-size: 1.1rem;
+    pointer-events: none; /* Biar kalau diklik, tembus ke inputnya */
+}
+.sidebar {
+    background-color: var(--warna-kartu);
+    border-right: 1px solid var(--warna-border);
+    padding: 20px;
+    position: sticky;
+    /* Karena Header tingginya misal 80px, Sidebar jangan nempel di 0, tapi di bawah Header */
+    top: 80px; /* Sesuaikan dengan tinggi headermu */
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+.sidebar a{
+    display: block;
+    padding: 10px 15px;
+    color: var(--warna-teks);
+    border: 1px solid var(--warna-border);
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+.sidebar a.menu-aktif {
+    background-color: var(--warna-utama); /* Warna Emas/Utama */
+    color: var(--warna-kartu); /* Teks jadi gelap biar kebaca */
+    font-weight: bold;
+    border-left: 5px solid #fff; /* Aksen garis putih di kiri biar kece */
+    transform: translateX(10px); /* Geser dikit biar menonjol */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.konten-utama {
+    padding: 40px;
+    background-color: var(--warna-bg);
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+/* --- FOOTER GAYA MINIMALIS --- */
+.kaki-website {
+    margin-top: 80px; /* Jarak jauh dari materi terakhir */
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px dashed var(--warna-border); /* Garis putus-putus estetik */
+    color: var(--warna-teks);
+    opacity: 0.8; /* Agak pudar dikit */
+    font-size: 0.9rem;
+}
+
+/* Quote */
+.quote-footer {
+    font-style: italic;
+    margin-bottom: 15px;
+    font-family: monospace; /* Font koding */
+    color: var(--warna-utama); /* Warna Emas */
+}
+
+/* Ikon Hati Berdetak (Animation) */
+.fa-heart.beat {
+    color: #ef4444; /* Merah */
+    animation: detak-jantung 1s infinite; /* Gerak terus */
+}
+
+/* Animasi Detak Jantung */
+@keyframes detak-jantung {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Link Creator */
+.link-creator {
+    text-decoration: none;
+    color: var(--warna-judul);
+    font-weight: bold;
+    border-bottom: 2px solid var(--warna-utama);
+}
+
+/* Sosmed Icons */
+.sosmed-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Jarak antar ikon */
+}
+
+.sosmed-icons a {
+    color: var(--warna-teks);
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.sosmed-icons a:hover {
+    color: var(--warna-utama); /* Jadi emas pas disorot */
+    transform: translateY(-3px); /* Naik dikit */
+}
+/* ========================================= */
+/* 📱 MOBILE RESPONSIVE (LAYAR HP)           */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* 1. HEADER (Ubah dikit biar pas) */
+    header {
+        padding: 15px 10px 10px 10px; /* Lebih tipis */
+        height: 60px;       /* Kita kunci tingginya biar gampang ngitung sidebar */
+        box-sizing: border-box; /* Biar padding gak nambah tinggi */
+    }
+
+    header h1 {
+        font-size: 1.1rem; /* Judul lebih kecil */
+    }
+
+    /* 2. LAYOUT JADI TUMPUK */
+    .layout-utama {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 3. SIDEBAR (NAVIGASI ATAS YANG NEMPEL) */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        
+        /* --- MANTRA AGAR DIA TIDAK HILANG --- */
+        position: sticky; /* Nempel! */
+        top: 60px;        /* Nempelnya 60px dari atas (di bawah Header persis) */
+        z-index: 900;     /* Di atas konten, tapi di bawah Header (Header z-index 1000) */
+        
+        background-color: var(--warna-bg); /* Wajib punya background biar gak tembus pandang! */
+        border-bottom: 1px solid var(--warna-border);
+        border-right: none;
+        padding: 10px;
+        
+        /* Bayangan biar kelihatan misah sama konten */
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    }
+    
+    /* Sembunyikan Logo Area & Search di HP (Hemat tempat) */
+    /* Kalau mau tetap ada, hapus bagian ini */
+    .logo-area, .search-box {
+        display: none; 
+    }
+
+    /* 4. MENU GESER SAMPING */
+    #menu-navigasi {
+        display: flex;
+        overflow-x: auto; /* Scroll Samping */
+        gap: 8px;
+        padding-bottom: 5px;
+        /* Sembunyikan Scrollbar kasar */
+        scrollbar-width: none; /* Firefox */
+    }
+    #menu-navigasi::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    #menu-navigasi a {
+        background-color: var(--warna-kartu);
+        border: 1px solid var(--warna-border);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        white-space: nowrap; /* Teks jangan turun baris */
+        flex-shrink: 0; /* Jangan mau dipenyet */
+    }
+    
+    /* Menu Aktif di HP warnanya beda */
+    #menu-navigasi a.menu-aktif {
+        background-color: var(--warna-utama);
+        color: white;
+        border-color: var(--warna-utama);
+    }
+
+    /* 5. KONTEN (ISI MATERI) */
+    .konten-utama {
+        padding: 15px;
+        min-width: 100%;
+    }
+
+    /* ============================================ */
+    /* 🎩 SULAP TOMBOL JADI IKON (HANYA DI HP)      */
+    /* ============================================ */
+
+    /* TOMBOL SIMPAN (Ganti jadi Ikon Disket) */
+    .input-wrapper button {
+        font-size: 0; /* Sembunyikan teks "Simpan" */
+        padding: 10px 14px; /* Atur ulang padding */
+    }
+    
+    .input-wrapper button::before {
+        font-family: "Font Awesome 6 Free"; /* Panggil Font Awesome */
+        font-weight: 900; /* Solid */
+        content: "\f0c7"; /* Kode Unicode Ikon DISKET (Save) */
+        font-size: 1rem; /* Munculkan ukuran ikon */
+    }
+
+    /* TOMBOL HAPUS (Ganti jadi Ikon Sampah) */
+    .btn-hapus-kecil {
+        font-size: 0; /* Sembunyikan teks "Hapus" */
+        padding: 5px 10px;
+        border: 1px solid #ef4444;
+    }
+    
+    .btn-hapus-kecil::before {
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        content: "\f1f8"; /* Kode Unicode Ikon SAMPAH (Trash) */
+        font-size: 0.9rem;
+    }
+}

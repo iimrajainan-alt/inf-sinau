@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    /* Background: Biru Malam Gelap (Slate) */
+    --warna-bg: #0f172a; 
+    
+    /* Utama: Emas / Amber (Mewah!) */
+    --warna-utama: #f59e0b; 
+    
+    /* Teks: Abu-abu terang (Jangan putih polos, sakit mata) */
+    --warna-teks: #e2e8f0; 
+    
+    /* Kartu: Biru Malam yang lebih terang dikit */
+    --warna-kartu: #1e293b; 
+    
+    /* Border: Biru Abu */
+    --warna-border: #334155; 
+    
+    /* Tombol Hapus: Merah Terbakar */
+    --warna-hapus: #ef4444;
+
+    --warna-catatan: #ffffff;
+}
+body {
+    background-color: var(--warna-bg);
+    font-family: sans-serif;
+    color: var(--warna-teks);
+    padding: 20px;
+}
