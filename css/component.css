@@ -16,6 +16,9 @@
 .kartu:hover {
     transform: translateY(-3px);
 }
+.paket-fiqih {
+    scroll-margin-top: 100px; /* Header (80px) + Napas (40px) */
+}
 .paket-fiqih h2 {
     background: linear-gradient(90deg, var(--warna-utama), transparent); /* Gradasi background judul */
     color: #fff;
